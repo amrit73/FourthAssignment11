@@ -41,6 +41,7 @@ public class Dashboard extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(Dashboard.this));
         btnadditems = findViewById(R.id.btnAddItems);
+
         btnadditems.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

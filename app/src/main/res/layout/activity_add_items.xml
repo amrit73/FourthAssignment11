@@ -58,6 +58,13 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/buttonshape"
             android:text="Submit" />
+        <Button
+            android:id="@+id/dashboardd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/buttonshape"
+            android:text="Go To Dashboard" />
 
     </LinearLayout>
 </FrameLayout>

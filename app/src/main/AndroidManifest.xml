@@ -8,7 +8,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Online Clothig Shopping App"
+        android:label="Online Cloting Shopping App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -27,5 +27,5 @@
 
         </activity>
     </application>
-    
+
 </manifest>

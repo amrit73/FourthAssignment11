@@ -35,7 +35,7 @@ public class AddItems extends AppCompatActivity {
     private final String BASE_URL = "http://10.0.2.2:8080";
 
     EditText ItemName, ItemPrice, ItemDescription;
-    Button btnSubmitItem;
+    Button btnSubmitItem,dashboardd;
     ImageView selectImage;
     Uri uri;
     Bitmap bitmap;
@@ -52,9 +52,17 @@ public class AddItems extends AppCompatActivity {
         ItemPrice = findViewById(R.id.additemPrice);
         ItemDescription = findViewById(R.id.additemDescription);
         btnSubmitItem = findViewById(R.id.submitItem);
+        dashboardd=findViewById(R.id.dashboardd);
         selectImage = findViewById(R.id.selectImage);
         createInstance();
 
+        dashboardd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddItems.this, Dashboard.class);
+                startActivity(intent);
+            }
+        });
         btnSubmitItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

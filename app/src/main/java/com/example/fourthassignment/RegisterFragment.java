@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.fourthassignment.Model.UserModel;
-import com.example.fourthassignment.Repository.RepoUser;
+import com.example.fourthassignment.Repository.UserRepo;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,7 +19,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterFragment extends Fragment {
-    RepoUser repoUser;
+    UserRepo userRepo;
     Button btnRegister;
     TextInputEditText txtname, txtemail, txtpassword;
 
@@ -46,7 +46,7 @@ public class RegisterFragment extends Fragment {
                         txtemail.getText().toString(),
                         txtpassword.getText().toString());
 
-                Call<Void> call = repoUser.addUser(userCUDModel);
+                Call<Void> call = userRepo.addUser(userCUDModel);
                 call.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
@@ -69,7 +69,7 @@ public class RegisterFragment extends Fragment {
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.2.2:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        repoUser = retrofit.create(RepoUser.class);
+        userRepo = retrofit.create(UserRepo.class);
     }
 
 

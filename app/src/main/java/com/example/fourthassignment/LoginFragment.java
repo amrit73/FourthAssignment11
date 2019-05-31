@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.fourthassignment.Model.UserModel;
-import com.example.fourthassignment.Repository.RepoUser;
+import com.example.fourthassignment.Repository.UserRepo;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginFragment extends Fragment {
     Button btnlogin;
     String BASE_URL = "http://10.0.2.2:8080";
-    RepoUser repoUser;
+    UserRepo userRepo;
     EditText email, password;
     Retrofit retrofit;
 
@@ -59,11 +59,11 @@ public class LoginFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        repoUser = retrofit.create(RepoUser.class);
+        userRepo = retrofit.create(UserRepo.class);
     }
 
     private void checkLogin() {
-        Call<List<UserModel>> userlogin = repoUser.getUser(new UserModel(
+        Call<List<UserModel>> userlogin = userRepo.getUser(new UserModel(
                 "",
                 email.getText().toString(),
                 password.getText().toString()
