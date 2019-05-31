@@ -28,7 +28,7 @@ public class LoginFragment extends Fragment {
     Button btnlogin;
     String BASE_URL = "http://10.0.2.2:8080";
     UserRepo userRepo;
-    EditText email, password;
+    EditText username, password;
     Retrofit retrofit;
 
     @Override
@@ -37,7 +37,7 @@ public class LoginFragment extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_login, container, false);
 
-        email = view.findViewById(R.id.loginemail);
+        username = view.findViewById(R.id.loginusername);
         password = view.findViewById(R.id.loginpassword);
         btnlogin = view.findViewById(R.id.btnlogin);
         createInstance();
@@ -64,8 +64,8 @@ public class LoginFragment extends Fragment {
 
     private void checkLogin() {
         Call<List<UserModel>> userlogin = userRepo.getUser(new UserModel(
-                "",
-                email.getText().toString(),
+                "","",
+                username.getText().toString(),
                 password.getText().toString()
         ));
 
@@ -80,7 +80,7 @@ public class LoginFragment extends Fragment {
 
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getActivity(), "Invalid Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Invalid Username or Password", Toast.LENGTH_SHORT).show();
                 }
             }
 

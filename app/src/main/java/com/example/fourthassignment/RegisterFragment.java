@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RegisterFragment extends Fragment {
     UserRepo userRepo;
     Button btnRegister;
-    TextInputEditText txtname, txtemail, txtpassword;
+    TextInputEditText firstname,lastname, txtemail, txtpassword;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,7 +30,8 @@ public class RegisterFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_register, container, false);
 
         btnRegister = view.findViewById(R.id.btnregister);
-        txtname = view.findViewById(R.id.registername);
+        firstname = view.findViewById(R.id.firstname);
+        lastname=view.findViewById(R.id.lastname);
         txtemail = view.findViewById(R.id.registeremail);
         txtpassword = view.findViewById(R.id.registerpassword);
 
@@ -42,7 +43,8 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 UserModel userCUDModel = new UserModel(
-                        txtname.getText().toString(),
+                        firstname.getText().toString(),
+                        lastname.getText().toString(),
                         txtemail.getText().toString(),
                         txtpassword.getText().toString());
 
@@ -50,12 +52,12 @@ public class RegisterFragment extends Fragment {
                 call.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        Toast.makeText(view.getContext(), "done", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), "User Added Succesfully", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
-                        Toast.makeText(view.getContext(), "not done", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), "Not added", Toast.LENGTH_SHORT).show();
                     }
                 });
 
