@@ -11,32 +11,22 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="25dp">
+
         <ImageView
+            android:id="@+id/selectImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background"
-            android:id="@+id/selectImage"/>
-
+            android:src="@drawable/ic_launcher_background" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/additemName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Item Name"
-                android:id="@+id/additemName"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Price"
-                android:id="@+id/additemPrice"/>
+                android:hint="Item Name" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -44,18 +34,30 @@
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/additemPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Description"
-                android:id="@+id/additemDescription"/>
+                android:hint="Price" />
         </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/additemDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description" />
+        </android.support.design.widget.TextInputLayout>
+
         <Button
+            android:id="@+id/submitItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit"
-            android:background="@drawable/buttonshape"
             android:layout_centerHorizontal="true"
-            android:id="@+id/submitItem"/>
+            android:background="@drawable/buttonshape"
+            android:text="Submit" />
 
     </LinearLayout>
 </FrameLayout>

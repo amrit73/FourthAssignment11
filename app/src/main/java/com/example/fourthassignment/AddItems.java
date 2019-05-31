@@ -15,8 +15,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.fourthassignment.Model.ImageModel;
-import com.example.fourthassignment.Model.ItemsCUDModel;
-import com.example.fourthassignment.Repo.ItemsRepo;
+import com.example.fourthassignment.Model.ItemsModel;
+import com.example.fourthassignment.Repository.RepoItems;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -39,7 +39,7 @@ public class AddItems extends AppCompatActivity {
     ImageView selectImage;
     Uri uri;
     Bitmap bitmap;
-    ItemsRepo itemsRepo;
+    RepoItems repoItems;
     private static final int PICK_IMAGE = 1;
     String ImageUrl;
 
@@ -122,7 +122,7 @@ public class AddItems extends AppCompatActivity {
             RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
             MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), requestBody);
 
-            Call<ImageModel> call = itemsRepo.uploadImage(body);
+            Call<ImageModel> call = repoItems.uploadImage(body);
             call.enqueue(new Callback<ImageModel>() {
                 @Override
                 public void onResponse(Call<ImageModel> call, Response<ImageModel> response) {
@@ -153,12 +153,12 @@ public class AddItems extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        itemsRepo = retrofit.create(ItemsRepo.class);
+        repoItems = retrofit.create(RepoItems.class);
     }
 
     private void addItems() {
 
-        Call<Void> call = itemsRepo.addItems(new ItemsCUDModel(
+        Call<Void> call = repoItems.addItems(new ItemsModel(
                 ItemName.getText().toString(),
                 ItemPrice.getText().toString(),
                 ItemDescription.getText().toString(),

@@ -9,13 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
-private List<Fragment> fragmentList=new ArrayList<>();
-private List<String> fragmentTitle=new ArrayList<>();
+    private List<Fragment> fragmentList = new ArrayList<>();
+    private List<String> fragmentTitle = new ArrayList<>();
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
-
 
     @Override
     public Fragment getItem(int i) {
@@ -33,7 +32,7 @@ private List<String> fragmentTitle=new ArrayList<>();
         return fragmentTitle.get(position);
     }
 
-    public void addFragment(Fragment fragment,String title){
+    public void addFragment(Fragment fragment, String title) {
         fragmentList.add(fragment);
         fragmentTitle.add(title);
     }

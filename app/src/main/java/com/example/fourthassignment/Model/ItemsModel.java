@@ -1,12 +1,12 @@
 package com.example.fourthassignment.Model;
 
-public class ItemsCUDModel {
+public class ItemsModel {
     private String itemName;
     private String itemPrice;
     private String itemDescription;
     private String itemImageName;
 
-    public ItemsCUDModel(String itemName, String itemPrice, String itemDescription, String itemImageName) {
+    public ItemsModel(String itemName, String itemPrice, String itemDescription, String itemImageName) {
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.itemDescription = itemDescription;

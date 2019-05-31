@@ -1,5 +1,4 @@
-package com.example.fourthassignment.Fragments;
-
+package com.example.fourthassignment;
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
@@ -10,9 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.fourthassignment.Model.UserCUDModel;
-import com.example.fourthassignment.R;
-import com.example.fourthassignment.Repo.UserRepo;
+import com.example.fourthassignment.Model.UserModel;
+import com.example.fourthassignment.Repository.RepoUser;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,8 +19,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterFragment extends Fragment {
-    UserRepo userRepo;
-
+    RepoUser repoUser;
     Button btnRegister;
     TextInputEditText txtname, txtemail, txtpassword;
 
@@ -44,12 +41,12 @@ public class RegisterFragment extends Fragment {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserCUDModel userCUDModel = new UserCUDModel(
+                UserModel userCUDModel = new UserModel(
                         txtname.getText().toString(),
                         txtemail.getText().toString(),
                         txtpassword.getText().toString());
 
-                Call<Void> call = userRepo.addUser(userCUDModel);
+                Call<Void> call = repoUser.addUser(userCUDModel);
                 call.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
@@ -67,11 +64,12 @@ public class RegisterFragment extends Fragment {
 
         return view;
     }
-    private void createInstance(){
+
+    private void createInstance() {
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.2.2:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        userRepo = retrofit.create(UserRepo.class);
+        repoUser = retrofit.create(RepoUser.class);
     }
 
 

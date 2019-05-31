@@ -1,7 +1,7 @@
-package com.example.fourthassignment.Repo;
+package com.example.fourthassignment.Repository;
 
 import com.example.fourthassignment.Model.ImageModel;
-import com.example.fourthassignment.Model.ItemsCUDModel;
+import com.example.fourthassignment.Model.ItemsModel;
 
 import java.util.List;
 
@@ -13,12 +13,12 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 
-public interface ItemsRepo {
+public interface RepoItems {
     @POST("/addItem")
-    Call<Void> addItems(@Body ItemsCUDModel itemsCUDModel);
+    Call<Void> addItems(@Body ItemsModel itemsModel);
 
     @GET("/getItem")
-    Call<List<ItemsCUDModel>> getItems();
+    Call<List<ItemsModel>> getItems();
 
     @Multipart
     @POST("/upload")
